@@ -1,3 +1,29 @@
+# frozen_string_literal: true
+
+# == Route Map
+#
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
+      resources :users, only: %i[show update destroy] do
+        member do
+          get :profile
+        end
+      end
+    end
+  end
 end
+
+# resources :profile, only: [:show] do
+#   namespace :settings do
+#     resources :edit, only: [:index, :update]
+#     #resources :phone_number, only: [:index, :update]
+#     resources :profile_setup, only: [:index, :update]
+#     #esources :change_password, only: [:update]
+#     resources :limits, only: [:index, :update]
+#     # resources :invoices, only: [:index, :update]
+#     # resources :login_history, only: [:index]
+#   end
+# end
