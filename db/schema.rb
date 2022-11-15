@@ -10,9 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_11_07_124210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "users", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "email", null: false
+    t.string "name"
+    t.string "surname"
+    t.string "image"
+    t.text "about_me"
+    t.string "website"
+    t.string "city"
+    t.integer "zipcode"
+    t.string "street"
+    t.integer "location_number"
+    t.integer "phone_number"
+    t.boolean "company"
+    t.string "company_name"
+    t.integer "NIP"
+    t.string "authentication_method"
+    t.decimal "daily_donation_limit", default: "50000.0"
+    t.boolean "receive_notifications", default: true
+    t.boolean "SMS_notifications", default: false
+    t.decimal "SMS_notifications_amount", default: "100.0"
+    t.boolean "receive_invoices", default: false
+    t.boolean "visible_address", default: false
+    t.boolean "visible_email", default: false
+    t.boolean "visible_avatar", default: true
+    t.boolean "visible_phone_number", default: true
+    t.boolean "visible_registration_date", default: true
+    t.boolean "visible_supported_fundraisers", default: true
+    t.boolean "visible_in_browser", default: true
+    t.json "tokens"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
 
 end
