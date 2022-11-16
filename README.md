@@ -1,24 +1,55 @@
-# README
+# Charity Fundraising App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Charity Fundraising App** is a REST API only aplication using **Ruby on Rails** and **PostgreSQL**. It is an application for managing online fundraisers for any charity purpose .
+The application is modeled on polish sites offering the possibility to create fundraisers such as zrzutka.pl or się pomaga.pl
 
-Things you may want to cover:
+The application is still under development.
 
-* Ruby version
+For now, only the ability to create an extended user model and a base collection model has been implemented. 
 
-* System dependencies
 
-* Configuration
+## Installing
 
-* Database creation
+### Getting started
 
-* Database initialization
+Dependencies
+To run this project you need to have:
 
-* How to run the test suite
+Ruby 2.7.4
 
-* Services (job queues, cache servers, search engines, etc.)
+Rails 6.1.7
 
-* Deployment instructions
+PostgreSQL 13.8
 
-* ...
+### Setup the project
+Clone the project:
+``` bash
+  $ git clone https://github.com/SzymonB77/To_do_json
+```
+
+Enter project folder:
+``` bash
+  $ cd To_do_json
+```
+
+Next, configure your local database in config/database.yml file. Add your database username and password (unless you don't have any).
+
+Install the gems:
+``` bash
+  $ bundle install
+```
+
+Create and seed the database:
+``` bash
+  $ rails db:create 
+  $ rails db:migrate 
+  $ rails db:seed
+```
+
+### Running the project
+
+Run Rails server:
+```bash
+$ rails server
+```
+Open http://localhost:3000
