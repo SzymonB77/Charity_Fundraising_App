@@ -18,8 +18,11 @@
 #  user_id       :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  count         :integer          default(0)
 #
 class FundraiserSerializer < ActiveModel::Serializer
-  attributes :id, :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region, :end_date, :discription,
-             :total_amount
+  attributes :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region,
+             :end_date, :discription, :total_amount, :count, :user_id
+
+  belongs_to :user, serializer: ProfileNameSerializer
 end

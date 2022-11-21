@@ -16,6 +16,11 @@ module Api
         render json: @user, serializer: UserSerializer
       end
 
+      # attached only to fundraisers
+      def profilename
+        render json: @user, serializer: ProfileNameSerializer
+      end
+
       # PUT /user/1
       def update
         if @user.update(user_params)

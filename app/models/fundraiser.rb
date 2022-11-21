@@ -18,11 +18,16 @@
 #  user_id       :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  count         :integer          default(0)
 #
 class Fundraiser < ApplicationRecord
   # validations
   validates :title, presence: true
   # associations
   belongs_to :user
-  # filters
+
+  def increment(by = 1)
+    self.count += by
+    save
+  end
 end

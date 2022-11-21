@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'awesome_print', '~> 1.8'
 # Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.
 gem 'annotate', '~> 3.2'
+# PunchingBag is a hit counting and simple trending engine for Ruby on Rails
+gem 'punching_bag', '~> 0.7.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
