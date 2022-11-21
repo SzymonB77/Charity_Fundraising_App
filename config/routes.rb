@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
-      resources :fundraisers, only: %i[show update]
+
+      resources :fundraiser do
+        collection do
+          get :lastest
+          get :random
+          get :mostviewed
+        end
+      end
+
       resources :users, only: %i[show update destroy] do
         member do
           get :profile
