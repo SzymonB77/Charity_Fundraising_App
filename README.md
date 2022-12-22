@@ -7,7 +7,8 @@ The application is still under development.
 
 For now, only the ability to create an extended user model and a base collection model has been implemented. 
 
-
+In the link below you will find the ER diagram of the data base designed for this application. 
+https://dbdiagram.io/d/63a4520f99cb1f3b55a30128
 ## Installing
 
 ### Getting started
