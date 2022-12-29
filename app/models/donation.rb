@@ -6,7 +6,7 @@
 #  amount           :decimal(, )      not null
 #  note             :string
 #  payment_successed :boolean          default(FALSE)
-#  hiden_name       :boolean          default(FALSE)
+#  hidden_name       :boolean          default(FALSE)
 #  hidden_amount    :boolean          default(FALSE)
 #  fundraiser_id    :bigint           not null
 #  user_id          :bigint           not null
@@ -16,6 +16,8 @@
 class Donation < ApplicationRecord
   # validations
   validates :amount, presence: true
+  validates :fundraiser_id, presence: true
+  validates :user_id, presence: true
 
   # associations
   belongs_to :user

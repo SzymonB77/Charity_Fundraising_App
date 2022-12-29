@@ -23,11 +23,11 @@ module Api
         render json: @fundraiser, serializer: FundraiserSerializer
       end
 
-      # GET /fundraiser/lastest
-      def lastest
-        @pagy, @lastest_fundraisers = pagy(Fundraiser.order(created_at: :desc))
+      # GET /fundraiser/latest
+      def latest
+        @pagy, @latest_fundraisers = pagy(Fundraiser.order(created_at: :desc))
 
-        render json: @lastest_fundraisers, each_serializer: SimpleFundraiserSerializer
+        render json: @latest_fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
       # GET /fundraiser/random
