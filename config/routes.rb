@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
       resources :fundraisers do
         collection do
-          get :lastest
+          get :latest
           get :random
           get :mostviewed
         end
