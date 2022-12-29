@@ -2,10 +2,12 @@
 
 module Api
   module V1
-    class FundraiserController < ApplicationController
+    class FundraisersController < ApplicationController
       before_action :authenticate_api_v1_user!, only: %i[create update]
       before_action :set_user, only: %i[update]
       before_action :set_fundraiser, only: %i[show update]
+
+      # before_action :set_donation
       after_action { pagy_headers_merge(@pagy) if @pagy }
 
       # GET /fundraiser
@@ -21,11 +23,11 @@ module Api
         render json: @fundraiser, serializer: FundraiserSerializer
       end
 
-      # GET /fundraiser/lastest
-      def lastest
-        @pagy, @lastest_fundraisers = pagy(Fundraiser.order(created_at: :desc))
+      # GET /fundraiser/latest
+      def latest
+        @pagy, @latest_fundraisers = pagy(Fundraiser.order(created_at: :desc))
 
-        render json: @lastest_fundraisers, each_serializer: SimpleFundraiserSerializer
+        render json: @latest_fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
       # GET /fundraiser/random
