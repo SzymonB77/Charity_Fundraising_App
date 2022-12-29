@@ -10,7 +10,6 @@ class CreateFundraisers < ActiveRecord::Migration[6.1]
       t.string :region
       t.date :end_date
       t.jsonb :discription
-      t.decimal :total_amount
       
       t.references :user, null: false, foreign_key: true
       t.index ['discription'], name: 'index_fundraisers_on_discription', using: :gin

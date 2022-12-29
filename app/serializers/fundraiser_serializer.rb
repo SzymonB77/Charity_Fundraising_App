@@ -24,5 +24,9 @@ class FundraiserSerializer < ActiveModel::Serializer
   attributes :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region,
              :end_date, :discription, :total_amount, :count, :user_id
 
+  def total_amount
+    object.sum_donation
+  end
   belongs_to :user, serializer: ProfileNameSerializer
+  has_many :donations, serializer: DonationSerializer
 end

@@ -56,4 +56,5 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   # assotiations
   has_many :fundraisers, dependent: :destroy
+  has_many :donations
 end

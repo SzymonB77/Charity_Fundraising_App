@@ -55,4 +55,6 @@ class UserSerializer < ActiveModel::Serializer
              :visible_address, :visible_email, :visible_avatar, :visible_phone_number,
              :visible_registration_date, :visible_supported_fundraisers,
              :visible_in_browser
+
+  has_many :donations, serializer: DonationSerializer
 end

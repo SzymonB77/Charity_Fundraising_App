@@ -24,10 +24,15 @@ class Fundraiser < ApplicationRecord
   # validations
   validates :title, presence: true
   # associations
+  has_many :donations, dependent: :destroy
   belongs_to :user
 
   def increment(by = 1)
     self.count += by
     save
+  end
+
+  def sum_donation
+    donations.where(payment_successed: true).sum(:amount)
   end
 end
