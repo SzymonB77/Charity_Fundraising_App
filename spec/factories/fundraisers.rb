@@ -14,7 +14,6 @@
 #  region        :string
 #  end_date      :date
 #  discription   :jsonb
-#  total_amount  :decimal(, )
 #  user_id       :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

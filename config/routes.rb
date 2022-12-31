@@ -14,6 +14,9 @@ Rails.application.routes.draw do
           get :random
           get :mostviewed
         end
+
+        resources :money_boxes
+
       end
 
       resources :donations
