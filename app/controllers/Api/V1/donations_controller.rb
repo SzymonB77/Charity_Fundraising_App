@@ -31,7 +31,8 @@ module Api
       end
 
       def donation_params
-        params.require(:donation).permit(:id, :amount, :note, :hidden_amount, :hidden_name, :user_id, :fundraiser_id)
+        params.require(:donation).permit(:id, :amount, :note, :hidden_amount, :hidden_name, :user_id, :fundraiser_id,
+                                         :money_box_id)
       end
 
       # Only for payment acceptance

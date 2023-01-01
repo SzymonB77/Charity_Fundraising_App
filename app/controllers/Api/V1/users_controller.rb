@@ -4,7 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :authenticate_api_v1_user!, only: %i[show update]
-      before_action :set_user, only: %i[profile show update]
+      before_action :set_user, only: %i[profile show update destroy]
 
       # GET /user/1/profile (public)
       def profile

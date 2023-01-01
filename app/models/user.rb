@@ -57,4 +57,5 @@ class User < ApplicationRecord
   # assotiations
   has_many :fundraisers, dependent: :destroy
   has_many :donations
+  has_many :money_boxes
 end

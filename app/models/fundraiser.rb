@@ -14,7 +14,6 @@
 #  region        :string
 #  end_date      :date
 #  discription   :jsonb
-#  total_amount  :decimal(, )
 #  user_id       :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -25,6 +24,7 @@ class Fundraiser < ApplicationRecord
   validates :title, presence: true
   # associations
   has_many :donations, dependent: :destroy
+  has_many :money_boxes
   belongs_to :user
 
   def increment(by = 1)
@@ -33,6 +33,6 @@ class Fundraiser < ApplicationRecord
   end
 
   def sum_donation
-    donations.where(payment_successed: true).sum(:amount)
+    Donation.joins(:fundraiser).where(fundraiser: self, payment_successed: true).sum(:amount)
   end
 end
