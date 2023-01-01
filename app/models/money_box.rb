@@ -20,9 +20,12 @@ class MoneyBox < ApplicationRecord
   # functions
 
   def sum_donations
-    MoneyBox.joins(:donations).sum(:amount)
+    Donation.joins(:money_box).where(money_box: self, payment_successed: true).sum(:amount)
   end
 
+  def count_donators
+    Donation.joins(:money_box).where(money_box: self, payment_successed: true).distinct.count(:user_id)
+  end
   # associations
   has_many :donations
   belongs_to :user

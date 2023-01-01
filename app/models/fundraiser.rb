@@ -33,10 +33,6 @@ class Fundraiser < ApplicationRecord
   end
 
   def sum_donation
-    donations.where(payment_successed: true).sum(:amount)
-  end
-
-  def sum_donations
-    money_boxes.joins(:donations).sum(:amount)
+    Donation.joins(:fundraiser).where(fundraiser: self, payment_successed: true).sum(:amount)
   end
 end

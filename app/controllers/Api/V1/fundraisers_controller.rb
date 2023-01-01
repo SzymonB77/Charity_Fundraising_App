@@ -20,7 +20,7 @@ module Api
       # GET /fundraiser/1
       def show
         @fundraiser.increment
-        render json: @fundraiser, serializer: FundraiserSerializer
+        render json: @fundraiser, serializer: FundraiserSerializer, include: 'money_boxes.user'
       end
 
       # GET /fundraiser/latest

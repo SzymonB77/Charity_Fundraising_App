@@ -12,12 +12,21 @@
 #  updated_at    :datetime         not null
 #
 class MoneyBoxSerializer < ActiveModel::Serializer
-  attributes :id, :title, :notification, :qrcode, :fundraiser_id, :user_id, :total_donations
+  attributes :id, :title, :notification, :qrcode, :fundraiser_id, :user_id, :sum_of_money_box_donations,
+             :total_unique_donators, :sum_of_fundraiser_donations
 
   belongs_to :user, serializer: ProfileNameSerializer
   has_many :donations, serializer: DonationSerializer
 
-  def total_donations
+  def sum_of_money_box_donations
     object.sum_donations
+  end
+
+  def total_unique_donators
+    object.count_donators
+  end
+
+  def sum_of_fundraiser_donations
+    object.fundraiser.sum_donation
   end
 end

@@ -12,6 +12,11 @@ module Api
         render json: @money_box, serializer: MoneyBoxSerializer
       end
 
+      # attached only to fundraisers
+      def simple_money_box
+        render json: @money_box, serializer: SimpleMoneyBoxSerializer
+      end
+
       # POST /fundraisers/:id/moneyboxes/
       def create
         @money_box = current_api_v1_user.money_boxes.build(money_box_params)
