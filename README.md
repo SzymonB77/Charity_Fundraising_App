@@ -23,32 +23,32 @@ PostgreSQL 13.8
 ### Setup the project
 Clone the project:
 ``` bash
-   git clone https://github.com/SzymonB77/Charity_Fundraising_App
+git clone https://github.com/SzymonB77/Charity_Fundraising_App
 ```
 
 Enter project folder:
 ``` bash
-   cd To_do_json
+cd To_do_json
 ```
 
 Next, configure your local database in config/database.yml file. Add your database username and password (unless you don't have any).
 
 Install the gems:
 ``` bash
-   bundle install
+bundle install
 ```
 
 Create and seed the database:
 ``` bash
-   rails db:create 
-   rails db:migrate 
-   rails db:seed
+rails db:create 
+rails db:migrate 
+rails db:seed
 ```
 
 ### Running the project
 
 Run Rails server:
 ```bash
- rails server
+rails server
 ```
 Open http://localhost:3000
