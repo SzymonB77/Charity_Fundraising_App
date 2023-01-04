@@ -22,9 +22,10 @@
 class Fundraiser < ApplicationRecord
   # validations
   validates :title, presence: true
+  validates :user_id, presence: true
   # associations
   has_many :donations, dependent: :destroy
-  has_many :money_boxes
+  has_many :money_boxes, dependent: :destroy
   belongs_to :user
 
   def increment(by = 1)

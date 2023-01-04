@@ -1,36 +1,32 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
-# Table name: fundraisers
+# Table name: money_boxes
 #
 #  id            :bigint           not null, primary key
 #  title         :string           not null
-#  date_of_birth :date
-#  name          :string
-#  surname       :string
-#  reason        :string
-#  city          :string
-#  region        :string
-#  end_date      :date
-#  discription   :jsonb
+#  notification  :text
+#  qrcode        :string
+#  fundraiser_id :bigint           not null
 #  user_id       :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  count         :integer          default(0)
 #
 require 'rails_helper'
 
-RSpec.describe Fundraiser, type: :model do
+RSpec.describe MoneyBox, type: :model do
   describe 'associations' do
-    it { is_expected.to have_many(:donations).dependent(:destroy) }
-    it { is_expected.to have_many(:money_boxes).dependent(:destroy) }
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:fundraiser) }
+    it { is_expected.to have_many(:donations) }
   end
 
   describe 'validations' do
     describe 'title' do
       it { is_expected.to validate_presence_of(:title) }
+    end
+
+    describe 'fundraiser_id' do
+      it { is_expected.to validate_presence_of(:fundraiser_id) }
     end
 
     describe 'user_id' do
