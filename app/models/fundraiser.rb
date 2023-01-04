@@ -24,7 +24,8 @@ class Fundraiser < ApplicationRecord
   validates :title, presence: true
   validates :user_id, presence: true
   # associations
-  has_many :donations, dependent: :destroy
+  has_many :donations, dependent: :destroy 
+  has_many :photos, dependent: :destroy
   has_many :money_boxes, dependent: :destroy
   belongs_to :user
 

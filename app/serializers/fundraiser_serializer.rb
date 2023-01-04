@@ -21,7 +21,17 @@
 #
 class FundraiserSerializer < ActiveModel::Serializer
   attributes :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region,
-             :end_date, :discription, :total_amount, :count, :user_id, :successful_donations
+             :end_date, :discription, :total_amount, :count, :user_id, :successful_donations, :show_photos
+
+  attribute :creator_of_the_fundraiser do
+    ProfileNameSerializer.new(object.user).attributes
+  end
+
+  def show_photos
+    object.photos.map do |photo|
+      PhotoSerializer.new(photo).attributes
+    end 
+  end
 
   def successful_donations
     object.donations.where(payment_successed: true).map do |donation|
@@ -32,6 +42,6 @@ class FundraiserSerializer < ActiveModel::Serializer
   def total_amount
     object.sum_donation
   end
-  belongs_to :user, serializer: ProfileNameSerializer
+ 
   has_many :money_boxes, serializer: SimpleMoneyBoxSerializer
 end

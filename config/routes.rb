@@ -14,12 +14,11 @@ Rails.application.routes.draw do
           get :random
           get :mostviewed
         end
-
-        resources :money_boxes
-
+        resources :photos, only: %i[show create destroy]
+        resources :money_boxes, only: %i[show simple_money_box create update destroy]
       end
 
-      resources :donations
+      resources :donations, only: %i[create update]
 
       resources :users, only: %i[show update destroy] do
         member do
@@ -30,14 +29,3 @@ Rails.application.routes.draw do
   end
 end
 
-# resources :profile, only: [:show] do
-#   namespace :settings do
-#     resources :edit, only: [:index, :update]
-#     #resources :phone_number, only: [:index, :update]
-#     resources :profile_setup, only: [:index, :update]
-#     #esources :change_password, only: [:update]
-#     resources :limits, only: [:index, :update]
-#     # resources :invoices, only: [:index, :update]
-#     # resources :login_history, only: [:index]
-#   end
-# end

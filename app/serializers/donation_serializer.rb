@@ -15,7 +15,7 @@
 #  money_box_id      :bigint
 #
 class DonationSerializer < ActiveModel::Serializer
-  attributes :id, :myamount, :note, :myusername, :created_at, :payment_successed, :money_box_id
+  attributes :id, :myamount, :note, :myusername, :created_at_datetime, :payment_successed, :money_box_id
 
   def myamount
     object.hidden_amount ? 'unknown' : object.amount
@@ -27,5 +27,9 @@ class DonationSerializer < ActiveModel::Serializer
 
   def username
     ProfileNameSerializer.new(object.user).attributes
+  end
+
+  def created_at_datetime
+  object.created_at.strftime('%Y-%m-%d %H:%M')
   end
 end
