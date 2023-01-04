@@ -21,16 +21,23 @@
 #
 class FundraiserSerializer < ActiveModel::Serializer
   attributes :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region,
-             :end_date, :discription, :total_amount, :count, :user_id, :successful_donations, :show_photos
+             :end_date, :discription, :total_amount, :count, :user_id, :successful_donations, :show_photos,
+             :fundraiser_updates
 
   attribute :creator_of_the_fundraiser do
     ProfileNameSerializer.new(object.user).attributes
   end
 
+  def fundraiser_updates
+    object.fundraiser_updates.order(:created_at).map do |update|
+      FundraiserUpdateSerializer.new(update).attributes
+    end
+  end
+
   def show_photos
     object.photos.map do |photo|
       PhotoSerializer.new(photo).attributes
-    end 
+    end
   end
 
   def successful_donations

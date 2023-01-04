@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_03_174924) do
+ActiveRecord::Schema.define(version: 2023_01_04_154427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2023_01_03_174924) do
     t.index ["fundraiser_id"], name: "index_donations_on_fundraiser_id"
     t.index ["money_box_id"], name: "index_donations_on_money_box_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "fundraiser_updates", force: :cascade do |t|
+    t.text "note", null: false
+    t.bigint "fundraiser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fundraiser_id"], name: "index_fundraiser_updates_on_fundraiser_id"
   end
 
   create_table "fundraisers", force: :cascade do |t|
@@ -120,6 +128,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_174924) do
   add_foreign_key "donations", "fundraisers"
   add_foreign_key "donations", "money_boxes"
   add_foreign_key "donations", "users"
+  add_foreign_key "fundraiser_updates", "fundraisers"
   add_foreign_key "fundraisers", "users"
   add_foreign_key "money_boxes", "fundraisers"
   add_foreign_key "money_boxes", "users"

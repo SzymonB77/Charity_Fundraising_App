@@ -1,11 +1,11 @@
 module Api
   module V1
     class PhotosController < ApplicationController
-      before_action :authenticate_api_v1_user!
+      before_action :authenticate_api_v1_user!, only: %i[create destroy]
       before_action :set_photo, only: %i[show destroy]
       before_action :set_fundraiser, only: %i[create]
 
-      # attached only to fundraisers
+      # GET /fundraisers/:id/photos/:id
       def show
         render json: @photo, serializer: PhotoSerializer
       end

@@ -1,21 +1,23 @@
 # == Schema Information
 #
-# Table name: photos
+# Table name: fundraiser_updates
 #
 #  id            :bigint           not null, primary key
-#  photo         :string           not null
+#  note          :text             not null
 #  fundraiser_id :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-RSpec.describe Photo, type: :model do
+require 'rails_helper'
+
+RSpec.describe FundraiserUpdate, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:fundraiser) }
   end
 
   describe 'validations' do
-    describe 'photo' do
-      it { is_expected.to validate_presence_of(:photo) }
+    describe 'note' do
+      it { is_expected.to validate_presence_of(:note) }
     end
 
     describe 'fundraiser_id' do
