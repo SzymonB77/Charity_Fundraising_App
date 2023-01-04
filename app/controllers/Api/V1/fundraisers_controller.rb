@@ -4,7 +4,7 @@ module Api
   module V1
     class FundraisersController < ApplicationController
       before_action :authenticate_api_v1_user!, only: %i[create update]
-      before_action :set_user, only: %i[update]
+      before_action :set_user, only: %i[show update]
       before_action :set_fundraiser, only: %i[show update]
 
       # before_action :set_donation
@@ -17,34 +17,34 @@ module Api
         render json: @fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
-      # GET /fundraiser/1
+      # GET /fundraisers/:id
       def show
         @fundraiser.increment
         render json: @fundraiser, serializer: FundraiserSerializer, include: 'money_boxes.user'
       end
 
-      # GET /fundraiser/latest
+      # GET /fundraisers/latest
       def latest
         @pagy, @latest_fundraisers = pagy(Fundraiser.order(created_at: :desc))
 
         render json: @latest_fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
-      # GET /fundraiser/random
+      # GET /fundraisers/random
       def random
         @pagy, @random_fundraisers = pagy(Fundraiser.order('RANDOM()'))
 
         render json: @random_fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
-      # GET /fundraiser/mostviewed
+      # GET /fundraisers/mostviewed
       def mostviewed
         @pagy, @most_viewed_fundraisers = pagy(Fundraiser.order(count: :desc))
 
         render json: @most_viewed_fundraisers, each_serializer: SimpleFundraiserSerializer
       end
 
-      # POST /fundraiser
+      # POST /fundraisers
       def create
         @fundraiser = current_api_v1_user.fundraisers.build(fundraiser_params)
         if @fundraiser.save
@@ -54,7 +54,7 @@ module Api
         end
       end
 
-      # PUT /fundraiser/1
+      # PUT /fundraisers/:id
       def update
         if @fundraiser.update(fundraiser_params)
           render json: @fundraiser, serializer: FundraiserSerializer
