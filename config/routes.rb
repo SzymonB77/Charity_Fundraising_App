@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         end
         resources :photos, only: %i[show create destroy]
         resources :money_boxes, only: %i[show simple_money_box create update destroy]
+        resources :fundraiser_updates
       end
 
       resources :donations, only: %i[create update]
