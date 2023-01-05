@@ -17,13 +17,12 @@
 require 'rails_helper'
 
 RSpec.describe Donation, type: :model do
-
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:fundraiser) }
     it { is_expected.to belong_to(:money_box).optional }
   end
-    
+
   describe 'validations' do
     describe 'amount' do
       it { is_expected.to validate_presence_of(:amount) }

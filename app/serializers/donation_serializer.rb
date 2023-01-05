@@ -30,6 +30,6 @@ class DonationSerializer < ActiveModel::Serializer
   end
 
   def created_at_datetime
-  object.created_at.strftime('%Y-%m-%d %H:%M')
+    object.created_at.strftime('%Y-%m-%d %H:%M')
   end
 end

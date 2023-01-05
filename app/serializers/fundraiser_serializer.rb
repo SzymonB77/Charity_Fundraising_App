@@ -49,6 +49,6 @@ class FundraiserSerializer < ActiveModel::Serializer
   def total_amount
     object.sum_donation
   end
- 
+
   has_many :money_boxes, serializer: SimpleMoneyBoxSerializer
 end

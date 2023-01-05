@@ -14,6 +14,11 @@ Rails.application.routes.draw do
           get :random
           get :mostviewed
         end
+        member do
+          post :observe_fundraiser
+          delete :destroy_observe_fundraiser
+        end
+
         resources :photos, only: %i[show create destroy]
         resources :money_boxes, only: %i[show simple_money_box create update destroy]
         resources :fundraiser_updates
@@ -29,4 +34,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
