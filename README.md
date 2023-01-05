@@ -38,11 +38,10 @@ Install the gems:
 bundle install
 ```
 
-Create and seed the database:
+Create the database:
 ``` bash
 rails db:create 
 rails db:migrate 
-rails db:seed
 ```
 
 ### Running the project
