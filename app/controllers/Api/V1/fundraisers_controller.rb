@@ -3,9 +3,11 @@
 module Api
   module V1
     class FundraisersController < ApplicationController
-      before_action :authenticate_api_v1_user!, only: %i[create update]
+      before_action :authenticate_api_v1_user!, only: %i[create update observe_fundraiser set_observed_fundraiser
+                                                         destroy_observe_fundraiser]
       before_action :set_user, only: %i[show update]
-      before_action :set_fundraiser, only: %i[show update]
+      before_action :set_fundraiser, only: %i[show update observe_fundraiser destroy_observe_fundraiser]
+      before_action :set_observed_fundraiser, only: %i[destroy_observe_fundraiser]
 
       # before_action :set_donation
       after_action { pagy_headers_merge(@pagy) if @pagy }
@@ -63,6 +65,22 @@ module Api
         end
       end
 
+      # POST /fundraisers/:id/observe_fundraiser
+      def observe_fundraiser
+        @observed_fundraiser = current_api_v1_user.observed_fundraisers.build(fundraiser: @fundraiser)
+        if @observed_fundraiser.save
+          render json: @observed_fundraiser, serializer: ObservedFundraiserSerializer, status: :created
+        else
+          render json: @observed_fundraiser.errors, status: :unprocessable_entity
+        end
+      end
+
+      # DELETE /fundraisers/:id/observe_fundraiser
+      def destroy_observe_fundraiser
+        @observed_fundraiser.destroy
+        render json: @observed_fundraiser if @observed_fundraiser.destroy
+      end
+
       private
 
       def set_user
@@ -71,6 +89,10 @@ module Api
 
       def set_fundraiser
         @fundraiser = Fundraiser.find(params[:id])
+      end
+
+      def set_observed_fundraiser
+        @observed_fundraiser = ObservedFundraiser.find_by!(user: current_api_v1_user, fundraiser: @fundraiser)
       end
 
       def fundraiser_params

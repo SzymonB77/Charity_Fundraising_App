@@ -54,7 +54,22 @@ class UserSerializer < ActiveModel::Serializer
              :SMS_notifications, :SMS_notifications_amount, :receive_invoices,
              :visible_address, :visible_email, :visible_avatar, :visible_phone_number,
              :visible_registration_date, :visible_supported_fundraisers,
-             :visible_in_browser
+             :visible_in_browser, :my_observed_fundraiser
 
   has_many :donations, serializer: DonationSerializer
+
+  def my_observed_fundraiser
+    object.observed_fundraisers.map do |observe|
+      ObservedFundraiserSerializer.new(observe).attributes
+    end
+  end
+
+  class ObservedFundraiserSerializer < ActiveModel::Serializer
+    attributes :id, :fundraiser_title, :fundraiser_id
+
+    def fundraiser_title
+      fundraiser = Fundraiser.find(object.fundraiser_id)
+      fundraiser.title
+    end
+  end
 end

@@ -28,6 +28,7 @@ class Fundraiser < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :fundraiser_updates, dependent: :destroy
   has_many :money_boxes, dependent: :destroy
+  has_many :observed_fundraisers, dependent: :destroy
   belongs_to :user
 
   def increment(by = 1)

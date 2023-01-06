@@ -24,7 +24,7 @@ class Donation < ApplicationRecord
 
   def fundraiser_and_money_box_match
     if money_box.present? && fundraiser_id != money_box.fundraiser_id
-      errors.add(:money_box, "Must be associated with the same fundraiser as the moneybox")
+      errors.add(:money_box, 'Must be associated with the same fundraiser as the moneybox')
     end
   end
   # associations
