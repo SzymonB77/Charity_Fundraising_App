@@ -27,12 +27,12 @@
 #  phone_number                  :integer
 #  company                       :boolean
 #  company_name                  :string
-#  NIP                           :integer
+#  nip                           :integer
 #  authentication_method         :string
 #  daily_donation_limit          :decimal(, )      default(50000.0)
 #  receive_notifications         :boolean          default(TRUE)
-#  SMS_notifications             :boolean          default(FALSE)
-#  SMS_notifications_amount      :decimal(, )      default(100.0)
+#  sms_notifications             :boolean          default(FALSE)
+#  sms_notifications_amount      :decimal(, )      default(100.0)
 #  receive_invoices              :boolean          default(FALSE)
 #  visible_address               :boolean          default(FALSE)
 #  visible_email                 :boolean          default(FALSE)

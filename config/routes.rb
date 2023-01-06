@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
       resources :donations, only: %i[create update]
 
+      resources :invoices, only: %i[create update destroy]
       resources :users, only: %i[show update destroy] do
         member do
           get :profile

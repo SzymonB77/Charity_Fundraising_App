@@ -43,9 +43,9 @@ module Api
 
       def user_params
         params.require(:user).permit(:email, :name, :surname, :image, :about_me, :website, :city, :zipcode, :street,
-                                     :location_number, :phone_number, :company, :company_name, :NIP,
+                                     :location_number, :phone_number, :company, :company_name, :nip,
                                      :authentication_method, :daily_donation_limit, :receive_notifications,
-                                     :SMS_notifications, :SMS_notifications_amount, :receive_invoices,
+                                     :sms_notifications, :sms_notifications_amount, :receive_invoices,
                                      :visible_address, :visible_email, :visible_avatar, :visible_phone_number,
                                      :visible_registration_date, :visible_supported_fundraisers,
                                      :visible_in_browser)
