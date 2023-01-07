@@ -3,8 +3,10 @@
 # Table name: debit_cards
 #
 #  id              :bigint           not null, primary key
-#  card_number     :float            not null
-#  expiration_date :date             not null
+#  name            :string           not null
+#  surname         :string           not null
+#  card_number     :string           not null
+#  expiration_date :string
 #  cvv             :integer          not null
 #  user_id         :bigint           not null
 #  created_at      :datetime         not null
