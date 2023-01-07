@@ -61,4 +61,5 @@ class User < ApplicationRecord
   has_many :money_boxes, dependent: :destroy
   has_many :observed_fundraisers, dependent: :destroy
   has_many :invoices, dependent: :destroy
+  has_many :debit_cards
 end

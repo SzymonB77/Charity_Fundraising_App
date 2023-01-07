@@ -57,6 +57,7 @@ class UserSerializer < ActiveModel::Serializer
              :visible_in_browser, :my_observed_fundraiser, :my_invoices
 
   has_many :donations, serializer: DonationSerializer
+  has_many :debit_cards, serializer: DebitCardSerializer
 
   def my_observed_fundraiser
     object.observed_fundraisers.map do |observe|
