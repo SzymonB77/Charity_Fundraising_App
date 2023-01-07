@@ -32,6 +32,7 @@ Rails.application.routes.draw do
           get :profile
         end
         resources :debit_cards, only: %i[index create destroy]
+        resources :identity_cards
       end
     end
   end

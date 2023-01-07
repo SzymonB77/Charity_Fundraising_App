@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_07_084142) do
+ActiveRecord::Schema.define(version: 2023_01_07_183151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,26 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
     t.integer "count", default: 0
     t.index ["discription"], name: "index_fundraisers_on_discription", using: :gin
     t.index ["user_id"], name: "index_fundraisers_on_user_id"
+  end
+
+  create_table "identity_cards", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "surname", null: false
+    t.string "citizenship"
+    t.string "country_of_birth", null: false
+    t.string "sex", null: false
+    t.bigint "pesel"
+    t.string "series_and_number", null: false
+    t.date "expiration_date", null: false
+    t.string "street", null: false
+    t.integer "house_number", null: false
+    t.string "city", null: false
+    t.integer "zipcode", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pesel"], name: "index_identity_cards_on_pesel", unique: true
+    t.index ["user_id"], name: "index_identity_cards_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -163,6 +183,7 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
   add_foreign_key "donations", "users"
   add_foreign_key "fundraiser_updates", "fundraisers"
   add_foreign_key "fundraisers", "users"
+  add_foreign_key "identity_cards", "users"
   add_foreign_key "invoices", "users"
   add_foreign_key "money_boxes", "fundraisers"
   add_foreign_key "money_boxes", "users"
