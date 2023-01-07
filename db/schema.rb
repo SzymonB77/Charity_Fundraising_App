@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_05_124929) do
+ActiveRecord::Schema.define(version: 2023_01_06_163005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2023_01_05_124929) do
     t.integer "count", default: 0
     t.index ["discription"], name: "index_fundraisers_on_discription", using: :gin
     t.index ["user_id"], name: "index_fundraisers_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "title"
+    t.string "invoice_link", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "money_boxes", force: :cascade do |t|
@@ -112,12 +121,12 @@ ActiveRecord::Schema.define(version: 2023_01_05_124929) do
     t.integer "phone_number"
     t.boolean "company"
     t.string "company_name"
-    t.integer "NIP"
+    t.integer "nip"
     t.string "authentication_method"
     t.decimal "daily_donation_limit", default: "50000.0"
     t.boolean "receive_notifications", default: true
-    t.boolean "SMS_notifications", default: false
-    t.decimal "SMS_notifications_amount", default: "100.0"
+    t.boolean "sms_notifications", default: false
+    t.decimal "sms_notifications_amount", default: "100.0"
     t.boolean "receive_invoices", default: false
     t.boolean "visible_address", default: false
     t.boolean "visible_email", default: false
@@ -140,6 +149,7 @@ ActiveRecord::Schema.define(version: 2023_01_05_124929) do
   add_foreign_key "donations", "users"
   add_foreign_key "fundraiser_updates", "fundraisers"
   add_foreign_key "fundraisers", "users"
+  add_foreign_key "invoices", "users"
   add_foreign_key "money_boxes", "fundraisers"
   add_foreign_key "money_boxes", "users"
   add_foreign_key "observed_fundraisers", "fundraisers"

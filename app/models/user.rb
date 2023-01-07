@@ -29,12 +29,12 @@
 #  phone_number                  :integer
 #  company                       :boolean
 #  company_name                  :string
-#  NIP                           :integer
+#  nip                           :integer
 #  authentication_method         :string
 #  daily_donation_limit          :decimal(, )      default(50000.0)
 #  receive_notifications         :boolean          default(TRUE)
-#  SMS_notifications             :boolean          default(FALSE)
-#  SMS_notifications_amount      :decimal(, )      default(100.0)
+#  sms_notifications             :boolean          default(FALSE)
+#  sms_notifications_amount      :decimal(, )      default(100.0)
 #  receive_invoices              :boolean          default(FALSE)
 #  visible_address               :boolean          default(FALSE)
 #  visible_email                 :boolean          default(FALSE)
@@ -54,9 +54,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+
   # assotiations
   has_many :fundraisers, dependent: :destroy
   has_many :donations
   has_many :money_boxes, dependent: :destroy
-  has_many :observed_fundraisers
+  has_many :observed_fundraisers, dependent: :destroy
+  has_many :invoices, dependent: :destroy
 end
