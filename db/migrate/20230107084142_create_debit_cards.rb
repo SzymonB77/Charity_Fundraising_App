@@ -1,6 +1,8 @@
 class CreateDebitCards < ActiveRecord::Migration[6.1]
   def change
     create_table :debit_cards do |t|
+      t.string :name, null: false
+      t.string :surname, null: false
       t.string :card_number, null: false, unique: true
       t.string :expiration_date
       t.integer :cvv, null: false

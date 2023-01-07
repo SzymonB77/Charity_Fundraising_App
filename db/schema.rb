@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
   enable_extension "plpgsql"
 
   create_table "debit_cards", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "surname", null: false
     t.string "card_number", null: false
     t.string "expiration_date"
     t.integer "cvv", null: false

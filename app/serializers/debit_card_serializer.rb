@@ -11,10 +11,11 @@
 #  updated_at      :datetime         not null
 #
 class DebitCardSerializer < ActiveModel::Serializer
-  attributes :id, :my_name, :my_card_number, :expiration_date, :cvv
-  def my_name
-    object.user.name + ' ' + object.user.surname
+  attributes :id, :card_name, :my_card_number, :expiration_date, :cvv
+  def card_name
+    object.name + ' ' + object.surname
   end
+
   def my_card_number
     object.card_number.to_s.gsub(/(\d{4})/, '\1 ').strip
   end

@@ -32,7 +32,7 @@ module Api
       end
 
       def debit_card_params
-        params.require(:debit_card).permit(:id, :card_number, :expiration_date, :cvv)
+        params.require(:debit_card).permit(:id, :name, :surname, :card_number, :expiration_date, :cvv)
       end
     end
   end

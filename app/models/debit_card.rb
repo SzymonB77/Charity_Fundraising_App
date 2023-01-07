@@ -12,6 +12,8 @@
 #
 class DebitCard < ApplicationRecord
   # validations
+  validates :name, presence: true
+  validates :surname, presence: true
   validates :card_number, presence: true, uniqueness: true
   validates :card_number, format: { with: /\A[0-9]{16}\z/, message: "must have 16 digits" }
   validates :expiration_date, presence: true
