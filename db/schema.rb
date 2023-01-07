@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_06_163005) do
+ActiveRecord::Schema.define(version: 2023_01_07_084142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "debit_cards", force: :cascade do |t|
+    t.string "card_number", null: false
+    t.string "expiration_date"
+    t.integer "cvv", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_number"], name: "index_debit_cards_on_card_number", unique: true
+    t.index ["user_id"], name: "index_debit_cards_on_user_id"
+  end
 
   create_table "donations", force: :cascade do |t|
     t.decimal "amount", null: false
@@ -144,6 +155,7 @@ ActiveRecord::Schema.define(version: 2023_01_06_163005) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "debit_cards", "users"
   add_foreign_key "donations", "fundraisers"
   add_foreign_key "donations", "money_boxes"
   add_foreign_key "donations", "users"
