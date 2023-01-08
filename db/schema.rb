@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_07_183151) do
+ActiveRecord::Schema.define(version: 2023_01_07_221222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2023_01_07_183151) do
     t.index ["fundraiser_id"], name: "index_donations_on_fundraiser_id"
     t.index ["money_box_id"], name: "index_donations_on_money_box_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "fundraiser_abuses", force: :cascade do |t|
+    t.text "note"
+    t.bigint "phone_number", null: false
+    t.binary "attachment"
+    t.bigint "fundraiser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fundraiser_id"], name: "index_fundraiser_abuses_on_fundraiser_id"
   end
 
   create_table "fundraiser_updates", force: :cascade do |t|
@@ -181,6 +191,7 @@ ActiveRecord::Schema.define(version: 2023_01_07_183151) do
   add_foreign_key "donations", "fundraisers"
   add_foreign_key "donations", "money_boxes"
   add_foreign_key "donations", "users"
+  add_foreign_key "fundraiser_abuses", "fundraisers"
   add_foreign_key "fundraiser_updates", "fundraisers"
   add_foreign_key "fundraisers", "users"
   add_foreign_key "identity_cards", "users"
