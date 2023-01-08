@@ -1,6 +1,7 @@
 module Api
   module V1
     class FundraiserAbusesController < ApplicationController
+      before_action :authenticate_api_v1_admin!, only: %i[index destroy]
       before_action :set_fundraiser, only: %i[create]
       before_action :set_fundraiser_abuse, only: %i[destroy]
 

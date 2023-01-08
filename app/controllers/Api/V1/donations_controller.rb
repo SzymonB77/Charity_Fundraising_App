@@ -3,7 +3,8 @@
 module Api
   module V1
     class DonationsController < ApplicationController
-      before_action :authenticate_api_v1_user!
+      before_action :authenticate_api_v1_admin!, only: %i[update destroy]
+      before_action :authenticate_api_v1_user!, only: %i[create]
       before_action :set_donation, only: %i[update]
 
       # POST /donations
@@ -24,6 +25,11 @@ module Api
         else
           render json: @donation.errors, status: :unprocessable_entity
         end
+      end
+
+      # DELETE /donations/:id
+      def destroy
+        render json: @donation if @donation.destroy
       end
 
       private
