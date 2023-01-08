@@ -28,7 +28,7 @@ git clone https://github.com/SzymonB77/Charity_Fundraising_App
 
 Enter project folder:
 ``` bash
-cd To_do_json
+cd Charity_Fundraising_App
 ```
 
 Next, configure your local database in config/database.yml file. Add your database username and password (unless you don't have any).
