@@ -23,7 +23,9 @@ Rails.application.routes.draw do
         resources :photos, only: %i[show create destroy]
         resources :money_boxes, only: %i[show simple_money_box create update destroy]
         resources :fundraiser_updates
+        resources :fundraiser_abuses, only: %i[create destroy]
       end
+      resources :fundraiser_abuses, only: %i[index destroy]
 
       resources :donations, only: %i[create update]
 
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
           get :profile
         end
         resources :debit_cards, only: %i[index create destroy]
+        resources :identity_cards
       end
     end
   end
