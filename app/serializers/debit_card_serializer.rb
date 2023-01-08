@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: debit_cards
@@ -15,7 +17,7 @@
 class DebitCardSerializer < ActiveModel::Serializer
   attributes :id, :card_name, :my_card_number, :expiration_date, :cvv
   def card_name
-    object.name + ' ' + object.surname
+    "#{object.name} #{object.surname}"
   end
 
   def my_card_number
