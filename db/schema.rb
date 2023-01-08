@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_07_084142) do
+ActiveRecord::Schema.define(version: 2023_01_08_114425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "name"
+    t.string "nickname"
+    t.string "image"
+    t.string "email"
+    t.json "tokens"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_admins_on_uid_and_provider", unique: true
+  end
 
   create_table "debit_cards", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +69,16 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
     t.index ["user_id"], name: "index_donations_on_user_id"
   end
 
+  create_table "fundraiser_abuses", force: :cascade do |t|
+    t.text "note"
+    t.bigint "phone_number", null: false
+    t.binary "attachment"
+    t.bigint "fundraiser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fundraiser_id"], name: "index_fundraiser_abuses_on_fundraiser_id"
+  end
+
   create_table "fundraiser_updates", force: :cascade do |t|
     t.text "note", null: false
     t.bigint "fundraiser_id", null: false
@@ -68,6 +103,26 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
     t.integer "count", default: 0
     t.index ["discription"], name: "index_fundraisers_on_discription", using: :gin
     t.index ["user_id"], name: "index_fundraisers_on_user_id"
+  end
+
+  create_table "identity_cards", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "surname", null: false
+    t.string "citizenship"
+    t.string "country_of_birth", null: false
+    t.string "sex", null: false
+    t.bigint "pesel"
+    t.string "series_and_number", null: false
+    t.date "expiration_date", null: false
+    t.string "street", null: false
+    t.integer "house_number", null: false
+    t.string "city", null: false
+    t.integer "zipcode", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pesel"], name: "index_identity_cards_on_pesel", unique: true
+    t.index ["user_id"], name: "index_identity_cards_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -161,8 +216,10 @@ ActiveRecord::Schema.define(version: 2023_01_07_084142) do
   add_foreign_key "donations", "fundraisers"
   add_foreign_key "donations", "money_boxes"
   add_foreign_key "donations", "users"
+  add_foreign_key "fundraiser_abuses", "fundraisers"
   add_foreign_key "fundraiser_updates", "fundraisers"
   add_foreign_key "fundraisers", "users"
+  add_foreign_key "identity_cards", "users"
   add_foreign_key "invoices", "users"
   add_foreign_key "money_boxes", "fundraisers"
   add_foreign_key "money_boxes", "users"
