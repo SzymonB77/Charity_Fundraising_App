@@ -41,7 +41,8 @@ bundle install
 Create the database:
 ``` bash
 rails db:create 
-rails db:migrate 
+rails db:migrate
+rails db:seed
 ```
 
 ### Running the project
