@@ -5,8 +5,9 @@ module Api
     class FundraisersController < ApplicationController
       before_action :authenticate_api_v1_user!, only: %i[create update observe_fundraiser set_observed_fundraiser
                                                          destroy_observe_fundraiser]
+      before_action :authenticate_api_v1_admin!, only: [:destroy]
       before_action :set_user, only: %i[show update]
-      before_action :set_fundraiser, only: %i[show update observe_fundraiser destroy_observe_fundraiser]
+      before_action :set_fundraiser, only: %i[show update observe_fundraiser destroy_observe_fundraiser destroy]
       before_action :set_observed_fundraiser, only: %i[destroy_observe_fundraiser]
 
       # before_action :set_donation
@@ -63,6 +64,11 @@ module Api
         else
           render json: { errors: @fundraiser.errors.messages }, status: :unprocessable_entity
         end
+      end
+
+      # DELETE /fundraisers/:id
+      def destroy
+        render json: @fundraiser if @fundraiser.destroy
       end
 
       # POST /fundraisers/:id/observe_fundraiser
