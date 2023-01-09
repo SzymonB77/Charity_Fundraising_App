@@ -17,6 +17,9 @@ The application is modeled on polish sites offering the possibility to create fu
 ## Entity Relationship Diagram (ERD)
 In the link below you will find the ER diagram of the data base designed for this application. 
 https://dbdiagram.io/d/63a4520f99cb1f3b55a30128
+
+## Examples of API responses
+Below are examples of responses from endpoints.
 ## Installing
 
 ### Getting started
