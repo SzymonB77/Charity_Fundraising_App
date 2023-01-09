@@ -106,12 +106,40 @@ Below are examples of responses from endpoints.
 
 `/fundraisers/:id/money_boxes/:id` - single money box with associated donations:
 ```json
-
-```
-
-`/fundraisers/:id/users/:id` - single user with observed fundraising, donations made, associated debit cards and identity card:
-```json
-
+{
+    "id": 1,
+    "title": "My money box for a worthy cause",
+    "notification": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "qrcode" "qrcode_url_1": ,
+    "fundraiser_id": 8,
+    "user_id": 1,
+    "sum_of_money_box_donations": "50.0",
+    "total_unique_donators": 1,
+    "sum_of_fundraiser_donations": "1399.0",
+    "user": {
+        "full_name": "John "
+    },
+    "donations": [
+        {
+            "id": 81,
+            "amount": "25.0",
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "username": {
+                "full_name": "Jack Ryan "
+            },
+            "sent": "2023-01-09 23:09",
+        },
+        {
+            "id": 82,
+            "amount": "25.0",
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "username": {
+                "full_name": "Daniel Craig "
+            },
+            "sent": "2023-01-09 23:09",
+        }
+    ]
+}
 ```
 
 ## Installing
