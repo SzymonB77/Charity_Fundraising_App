@@ -11,9 +11,9 @@
 #  updated_at    :datetime         not null
 #
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :photo, :fundraiser_id, :created_at_datetime
+  attributes :id, :photo, :fundraiser_id, :created_at
 
-  def created_at_datetime
+  def created_at
     object.created_at.strftime('%Y-%m-%d %H:%M')
   end
 end

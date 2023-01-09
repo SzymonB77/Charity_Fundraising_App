@@ -2,7 +2,6 @@
 
 # ProfileName
 class ProfileNameSerializer < ActiveModel::Serializer
-  attributes :id
   attribute :full_name, unless: :company?
   attribute :company_name, if: :company?
 
