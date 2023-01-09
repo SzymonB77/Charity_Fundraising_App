@@ -33,7 +33,7 @@ class Fundraiser < ApplicationRecord
   belongs_to :user
 
   def increment(by = 1)
-    self.count += by
+    self.number_of_views += by
     save
   end
 

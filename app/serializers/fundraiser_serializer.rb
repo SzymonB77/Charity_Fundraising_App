@@ -20,8 +20,8 @@
 #  count         :integer          default(0)
 #
 class FundraiserSerializer < ActiveModel::Serializer
-  attributes :id, :title, :date_of_birth, :name, :surname, :reason, :city, :region,
-             :end_date, :discription, :total_amount, :count, :user_id, :successful_donations, :show_photos,
+  attributes :id, :title, :name, :surname, :reason, :city, :region,
+             :end_date, :discription, :total_amount, :number_of_views, :donations, :fundraiser_photos,
              :fundraiser_updates
 
   attribute :creator_of_the_fundraiser do
@@ -34,13 +34,13 @@ class FundraiserSerializer < ActiveModel::Serializer
     end
   end
 
-  def show_photos
+  def fundraiser_photos
     object.photos.map do |photo|
       PhotoSerializer.new(photo).attributes
     end
   end
 
-  def successful_donations
+  def donations
     object.donations.where(payment_successed: true).map do |donation|
       DonationSerializer.new(donation).attributes
     end

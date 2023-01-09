@@ -11,9 +11,9 @@
 #  updated_at    :datetime         not null
 #
 class FundraiserUpdateSerializer < ActiveModel::Serializer
-  attributes :id, :note, :fundraiser_id, :created_at_datetime
+  attributes :id, :note, :fundraiser_id, :update_from
 
-  def created_at_datetime
+  def update_from 
     object.created_at.strftime('%Y-%m-%d %H:%M')
   end
 end
