@@ -38,9 +38,9 @@ Below are examples of responses from endpoints.
     "donations": [
         {
             "id": 5,
-            "myamount": "100.0",
+            "amount": "100.0",
             "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "myusername": {
+            "username": {
                 "full_name": "James Conay "
             },
             "sent": "2023-01-08 23:14",
@@ -48,9 +48,9 @@ Below are examples of responses from endpoints.
         },
         {
             "id": 43,
-            "myamount": "200.0",
+            "amount": "200.0",
             "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "myusername": "anonymous",
+            "username": "anonymous",
             "sent": "2023-01-08 23:23",
             "money_box_id": null
         }
