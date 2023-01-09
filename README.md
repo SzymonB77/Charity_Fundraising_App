@@ -22,10 +22,98 @@ https://dbdiagram.io/d/63a4520f99cb1f3b55a30128
 Below are examples of responses from endpoints.
 
 `/fundraisers/:id` - single fundraiser with photos, updates, creator of the fundraiser, associated donations and money boxes:
+```json
+{
+    "id": 1,
+    "title": "Young father suffers from stomach cancer",
+    "name": Harry,
+    "surname": Callahan,
+    "reason": stomach cancer,
+    "city": Kraków,
+    "region": Małopolskie,
+    "end_date": null,
+    "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor augue eu purus malesuada, id ornare sem malesuada.",
+    "total_amount": "300.0",
+    "number_of_views": 4,
+    "donations": [
+        {
+            "id": 5,
+            "myamount": "100.0",
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "myusername": {
+                "full_name": "James Conay "
+            },
+            "sent": "2023-01-08 23:14",
+            "money_box_id": 12
+        },
+        {
+            "id": 43,
+            "myamount": "200.0",
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "myusername": "anonymous",
+            "sent": "2023-01-08 23:23",
+            "money_box_id": null
+        }
+    ],
+    "show_photos": [
+        {
+            "id": 1,
+            "photo": "photo_url_1",
+            "fundraiser_id": 1,
+            "created_at": "2023-01-08 23:16"
+        },
+        {
+            "id": 2,
+            "photo": "photo_url_2",
+            "fundraiser_id": 1,
+            "created_at": "2023-01-08 23:16"
+        },
+ 
+    ],
+    "fundraiser_updates": [
+        {
+            "id": 1,
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "fundraiser_id": 1,
+            "update_from": "2023-01-08 23:17"
+        },
+        {
+            "id": 2,
+            "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "fundraiser_id": 1,
+            "update_from": "2023-01-08 23:17"
+        },
+
+    ],
+    "creator_of_the_fundraiser": {
+        "id": 1,
+        "full_name": "Mary Callahan"
+    },
+    "money_boxes": [
+        {
+            "id": 12,
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "sum_of_money_box_donations": "100.0",
+            "total_unique_donators": 1,
+            "user": {
+                "id": 2,
+                "full_name": "Tommy Vercetti"
+            }
+        }
+    ]
+}
+```
 
 `/fundraisers/:id/money_boxes/:id` - single money box with associated donations:
+```json
+
+```
 
 `/fundraisers/:id/users/:id` - single user with observed fundraising, donations made, associated debit cards and identity card:
+```json
+
+```
+
 ## Installing
 
 ### Getting started
