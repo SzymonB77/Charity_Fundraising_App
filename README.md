@@ -3,16 +3,16 @@
 **Charity Fundraising App** is a REST API only aplication using **Ruby on Rails** and **PostgreSQL**. It is an application for managing online fundraisers for any charity purpose .
 The application is modeled on polish sites offering the possibility to create fundraisers such as zrzutka.pl or się pomaga.pl
 
-Features include:
-• The ability for multiple users to create profiles with customizable settings
-• Allowing users to add multiple debit cards to their account
-• The option for users to add a identity card for account confirmation purposes
-• The ability for companies to receive invoices
-• Users have the option to create their own fundraisers and send updates through a separate model
-• Users can create their own money boxes linked to a specific fundraiser they wish to collect donations for
-• Users can send donations to specific fundraisers or money boxes linked to fundraisers
-• The ability to add fundraisers to a list of watched fundraisers
-• Any user can report a violation by a fundraiser to the administrator
+### Features include:
+- The ability for multiple users to create profiles with customizable settings
+- Allowing users to add multiple debit cards to their account
+- The option for users to add a identity card for account confirmation purposes
+- The ability for companies to receive invoices
+- Users have the option to create their own fundraisers and send updates through a separate model
+- Users can create their own money boxes linked to a specific fundraiser they wish to collect donations for
+- Users can send donations to specific fundraisers or money boxes linked to fundraisers
+- The ability to add fundraisers to a list of watched fundraisers
+- Any user can report a violation by a fundraiser to the administrator
 
 ## Entity Relationship Diagram (ERD)
 In the link below you will find the ER diagram of the data base designed for this application. 
