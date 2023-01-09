@@ -32,7 +32,7 @@ Below are examples of responses from endpoints.
     "city": "Kraków",
     "region": "Małopolskie",
     "end_date": null,
-    "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor augue eu purus malesuada, id ornare sem malesuada.",
+    "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "total_amount": "300.0",
     "number_of_views": 4,
     "donations": [
