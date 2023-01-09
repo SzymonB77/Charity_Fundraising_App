@@ -20,6 +20,7 @@ https://dbdiagram.io/d/63a4520f99cb1f3b55a30128
 
 ## Examples of API responses
 Below are examples of responses from endpoints.
+
 `/fundraisers/:id` - single fundraiser with photos, updates, creator of the fundraiser, associated donations and money boxes:
 
 `/fundraisers/:id/money_boxes/:id` - single money box with associated donations:
