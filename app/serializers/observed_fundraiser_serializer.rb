@@ -11,7 +11,7 @@
 #  updated_at    :datetime         not null
 #
 class ObservedFundraiserSerializer < ActiveModel::Serializer
-  attributes :id, :fundraiser_title, :fundraiser_id, :user_id
+  attributes :id, :fundraiser_title
 
   def fundraiser_title
     fundraiser = Fundraiser.find(object.fundraiser_id)
