@@ -30,11 +30,8 @@
 #  company                       :boolean
 #  company_name                  :string
 #  nip                           :integer
-#  authentication_method         :string
+#  verified_user                 :string
 #  daily_donation_limit          :decimal(, )      default(50000.0)
-#  receive_notifications         :boolean          default(TRUE)
-#  sms_notifications             :boolean          default(FALSE)
-#  sms_notifications_amount      :decimal(, )      default(100.0)
 #  receive_invoices              :boolean          default(FALSE)
 #  visible_address               :boolean          default(FALSE)
 #  visible_email                 :boolean          default(FALSE)
@@ -42,7 +39,6 @@
 #  visible_phone_number          :boolean          default(TRUE)
 #  visible_registration_date     :boolean          default(TRUE)
 #  visible_supported_fundraisers :boolean          default(TRUE)
-#  visible_in_browser            :boolean          default(TRUE)
 #  tokens                        :json
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
@@ -50,15 +46,16 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :name, :surname, :image, :about_me, :website, :city, :zipcode, :street,
              :location_number, :phone_number, :company, :company_name, :nip,
-             :authentication_method, :daily_donation_limit, :receive_notifications,
-             :sms_notifications, :sms_notifications_amount, :receive_invoices,
+             :verified_user, :receive_invoices,
              :visible_address, :visible_email, :visible_avatar, :visible_phone_number,
              :visible_registration_date, :visible_supported_fundraisers,
-             :visible_in_browser, :my_observed_fundraiser, :my_invoices
+             :my_observed_fundraiser, :my_invoices
 
   has_many :donations, serializer: DonationSerializer
   has_many :debit_cards, serializer: DebitCardSerializer
   has_one :identity_card, serializer: IdentityCardSerializer
+  has_many :my_fundraisers, serializer: SimpleFundraiserSerializer
+  has_many :supported_fundraisers, serializer: SimpleFundraiserSerializer
 
   def my_observed_fundraiser
     object.observed_fundraisers.map do |observe|

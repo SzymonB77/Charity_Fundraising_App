@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_09_222338) do
+ActiveRecord::Schema.define(version: 2023_01_10_140919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,11 +190,8 @@ ActiveRecord::Schema.define(version: 2023_01_09_222338) do
     t.boolean "company"
     t.string "company_name"
     t.integer "nip"
-    t.string "authentication_method"
+    t.string "verified_user"
     t.decimal "daily_donation_limit", default: "50000.0"
-    t.boolean "receive_notifications", default: true
-    t.boolean "sms_notifications", default: false
-    t.decimal "sms_notifications_amount", default: "100.0"
     t.boolean "receive_invoices", default: false
     t.boolean "visible_address", default: false
     t.boolean "visible_email", default: false
@@ -202,7 +199,6 @@ ActiveRecord::Schema.define(version: 2023_01_09_222338) do
     t.boolean "visible_phone_number", default: true
     t.boolean "visible_registration_date", default: true
     t.boolean "visible_supported_fundraisers", default: true
-    t.boolean "visible_in_browser", default: true
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

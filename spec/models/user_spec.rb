@@ -30,11 +30,8 @@
 #  company                       :boolean
 #  company_name                  :string
 #  nip                           :integer
-#  authentication_method         :string
+#  verified_user                 :string
 #  daily_donation_limit          :decimal(, )      default(50000.0)
-#  receive_notifications         :boolean          default(TRUE)
-#  sms_notifications             :boolean          default(FALSE)
-#  sms_notifications_amount      :decimal(, )      default(100.0)
 #  receive_invoices              :boolean          default(FALSE)
 #  visible_address               :boolean          default(FALSE)
 #  visible_email                 :boolean          default(FALSE)
@@ -42,7 +39,6 @@
 #  visible_phone_number          :boolean          default(TRUE)
 #  visible_registration_date     :boolean          default(TRUE)
 #  visible_supported_fundraisers :boolean          default(TRUE)
-#  visible_in_browser            :boolean          default(TRUE)
 #  tokens                        :json
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
