@@ -159,7 +159,7 @@ PostgreSQL 13.8
 ### Setup the project
 Clone the project:
 ``` bash
-git clone https://github.com/SzymonB77/Charity_Fundraising_App
+git clone https://github.com/SzymonB77/Charity_Fundraising_App.git
 ```
 
 Enter project folder:
