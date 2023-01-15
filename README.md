@@ -43,7 +43,7 @@ Below are examples of responses from endpoints.
             "amount": "100.0",
             "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "username": {
-                "full_name": "James Conay "
+                "full_name": "James Conay"
             },
             "sent": "2023-01-08 23:14",
             "money_box_id": 12
