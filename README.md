@@ -117,7 +117,7 @@ Below are examples of responses from endpoints.
     "total_unique_donators": 1,
     "sum_of_fundraiser_donations": "1399.0",
     "user": {
-        "full_name": "John "
+        "full_name": "John Doe"
     },
     "donations": [
         {
@@ -134,7 +134,7 @@ Below are examples of responses from endpoints.
             "amount": "25.0",
             "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "username": {
-                "full_name": "Daniel Craig "
+                "full_name": "Daniel Craig"
             },
             "sent": "2023-01-09 23:09",
         }
