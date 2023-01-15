@@ -125,7 +125,7 @@ Below are examples of responses from endpoints.
             "amount": "25.0",
             "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "username": {
-                "full_name": "Jack Ryan "
+                "full_name": "Jack Ryan"
             },
             "sent": "2023-01-09 23:09",
         },
