@@ -32,7 +32,7 @@ Below are examples of responses from endpoints.
     "city": "Kraków",
     "region": "Małopolskie",
     "end_date": null,
-    "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "total_amount": "300.0",
     "number_of_views": 4,
     "donations": [
@@ -110,7 +110,7 @@ Below are examples of responses from endpoints.
     "id": 1,
     "title": "My money box for a worthy cause",
     "notification": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "qrcode" "qrcode_url_1": ,
+    "qrcode" : "qrcode_url_1": ,
     "fundraiser_id": 8,
     "user_id": 1,
     "sum_of_money_box_donations": "50.0",
