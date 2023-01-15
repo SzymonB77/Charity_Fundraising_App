@@ -148,7 +148,6 @@ Below are examples of responses from endpoints.
 
 ### Getting started
 
-Dependencies
 To run this project you need to have:
 
 Ruby 2.7.4
