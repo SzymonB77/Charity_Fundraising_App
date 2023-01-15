@@ -1,6 +1,6 @@
 # Charity Fundraising App
 
-**Charity Fundraising App** is a REST API only aplication using **Ruby on Rails** and **PostgreSQL**. It is an application for managing online fundraisers for any charity purpose .
+**Charity Fundraising App** is a REST API only aplication using **Ruby on Rails** and **PostgreSQL**. It is an application for managing online fundraisers for any charity purpose.
 The application is modeled on polish sites offering the possibility to create fundraisers such as zrzutka.pl or się pomaga.pl. App created to improve my code writing skills.
 
 ### Features include:
