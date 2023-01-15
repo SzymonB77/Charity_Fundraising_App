@@ -15,7 +15,7 @@ The application is modeled on polish sites offering the possibility to create fu
 - Any user can report a violation by a fundraiser to the administrator
 
 ## Entity Relationship Diagram (ERD)
-In the link below you will find the ER diagram of the data base designed for this application. 
+In the link below you will find the ER diagram of the database designed for this application. 
 https://dbdiagram.io/d/63a4520f99cb1f3b55a30128
 
 ![erd](https://user-images.githubusercontent.com/6316812/212560249-3112a9b0-5546-4525-bc97-c318c22d51d9.png)
